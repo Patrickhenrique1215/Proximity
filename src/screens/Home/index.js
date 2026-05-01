@@ -43,7 +43,7 @@ export default function Home() {
       <View style={estilo.container}>
         <Text style={estilo.title} >Explorar</Text>
         <Pressable style={estilo.matchPress}>
-          <Image source={require('../../../assets/match.png')} resizeMode='contain' style={estilo.capaCruza} />
+          <Image source={require('../../../assets/explorar.png')} resizeMode='contain' style={estilo.capaCruza} />
         </Pressable>
       </View>
 
@@ -61,14 +61,14 @@ export default function Home() {
       <View style={estilo.container}>
         <Text style={estilo.title} >Casamento</Text>
         <Pressable style={estilo.matchPress}>
-          <Image source={require('../../../assets/match.png')} resizeMode='contain' style={estilo.capaCruza} />
+          <Image source={require('../../../assets/casamento.png')} resizeMode='contain' style={estilo.capaCruza} />
         </Pressable>
       </View>
 
       <View style={estilo.container}>
         <Text style={estilo.title} >Passeios pela cidade</Text>
         <Pressable style={estilo.matchPress}>
-          <Image source={require('../../../assets/match.png')} resizeMode='contain' style={estilo.capaCruza} />
+          <Image source={require('../../../assets/passeios.png')} resizeMode='contain' style={estilo.capaCruza} />
         </Pressable>
       </View>
     </ScrollView>

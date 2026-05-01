@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Home from './src/screens/Home';
@@ -16,6 +16,7 @@ import Perfil from './src/screens/Perfil';
 import { useFonts, Poppins_400Regular, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 
 import estiloglobal from './src/styles/estiloglobal';
+import estiloApp from './src/styles/estiloApp';
 
 
 const Stack = createStackNavigator();
@@ -62,13 +63,13 @@ export default function App() {
       <StatusBar />
       <NavigationContainer>
         <Stack.Navigator>
-
-          {/* Tela principal com as tabs + botões no header */}
           <Stack.Screen
             name="Main"
             component={TabNavigator}
             options={({ navigation }) => ({
-              headerTitle: '',
+              headerTitle: () => (
+                                  <Image source={require('./assets/logo.png')} resizeMode='contain' style={estiloApp.logo}></Image>
+              ),
               headerRight: () => (
                 <>
                   <TouchableOpacity
