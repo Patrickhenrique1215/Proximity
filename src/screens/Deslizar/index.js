@@ -1,7 +1,7 @@
 import { View, Text, Image } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
 import { MOCK_PROFILES} from '../../mocks/perfis';
-import estilo from './estilo';
+import estiloDeslizar from './estiloDeslizar';
 
 export default function Deslizar() {
 
@@ -9,11 +9,11 @@ export default function Deslizar() {
     if (!perfil) return null;
 
     return (
-      <View style={estilo.card}>
-        <Image source={perfil.photo} style={estilo.cardImage} resizeMode="cover" />
-        <View style={estilo.cardDetails}>
-          <Text style={estilo.cardName}>{perfil.name}, {perfil.age}</Text>
-          <Text style={estilo.cardBio} numberOfLines={2}>{perfil.bio}</Text>
+      <View style={estiloDeslizar.card}>
+        <Image source={perfil.photo} style={estiloDeslizar.cardImage} resizeMode="cover" />
+        <View style={estiloDeslizar.cardDetails}>
+          <Text style={estiloDeslizar.cardName}>{perfil.name}, {perfil.age}</Text>
+          <Text style={estiloDeslizar.cardBio} numberOfLines={2}>{perfil.bio}</Text>
         </View>
       </View>
     );
@@ -21,10 +21,10 @@ export default function Deslizar() {
 
 
   return (
-    <View style={estilo.container}>
+    <View style={estiloDeslizar.container}>
       <Swiper
         cards={MOCK_PROFILES}
-        containerStyle={estilo.swiperContainer}
+        containerStyle={estiloDeslizar.swiperContainer}
         renderCard={renderCard}
         onSwipedLeft={(cardIndex) => console.log('Recusou:', MOCK_PROFILES[cardIndex].name)}
         onSwipedRight={(cardIndex) => console.log('Curtiu:', MOCK_PROFILES[cardIndex].name)}

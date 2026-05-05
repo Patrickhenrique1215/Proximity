@@ -3,7 +3,7 @@ import estiloglobal from '../../styles/estiloglobal';
 
 const { width, height } = Dimensions.get('window');
 
-const estilo = StyleSheet.create({
+const estiloHome = StyleSheet.create({
 
   container: {
     flex: 1,
@@ -59,4 +59,4 @@ const estilo = StyleSheet.create({
 
 });
 
-export default estilo;
+export default estiloHome;

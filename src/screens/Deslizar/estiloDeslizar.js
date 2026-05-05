@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get('window');
 
-const estilo = StyleSheet.create({
+const estiloDeslizar = StyleSheet.create({
   container: {
     flex: 1,
   },
@@ -57,4 +57,4 @@ const estilo = StyleSheet.create({
   },
 });
 
-export default estilo;
+export default estiloDeslizar;
