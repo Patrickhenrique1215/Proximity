@@ -4,8 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { TouchableOpacity, Image } from 'react-native';
+import { TouchableOpacity, Image, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+
+import { useNavigation } from '@react-navigation/native';
 
 import Home from './src/screens/Home';
 import Deslizar from './src/screens/Deslizar';
@@ -51,6 +53,8 @@ function TabNavigator() {
 
 export default function App() {
 
+
+
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_600SemiBold,
@@ -68,7 +72,9 @@ export default function App() {
             component={TabNavigator}
             options={({ navigation }) => ({
               headerTitle: () => (
-                                  <Image source={require('./assets/logo.png')} resizeMode='contain' style={estiloApp.logo}></Image>
+                <Pressable onPress={() => navigation.navigate('Main', { screen: 'Home' })}>
+                  <Image source={require('./assets/logo.png')} resizeMode='contain' style={estiloApp.logo}></Image>
+                </Pressable>
               ),
               headerRight: () => (
                 <>
