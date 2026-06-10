@@ -71,11 +71,24 @@ export default function App() {
             name="Main"
             component={TabNavigator}
             options={({ navigation }) => ({
+
               headerTitle: () => (
-                <Pressable onPress={() => navigation.navigate('Main', { screen: 'Home' })}>
+                <Pressable onPress={() => {
+                  navigation.reset({
+                    index: 0,
+                    routes: [{
+                      name: 'Main',
+                      state: {
+                        routes: [{ name: 'Home'}], 
+                        index: 0,
+                      }
+                    }],
+                  });  
+                }} >
                   <Image source={require('./assets/logo.png')} resizeMode='contain' style={estiloApp.logo}></Image>
                 </Pressable>
               ),
+
               headerRight: () => (
                 <>
                   <TouchableOpacity

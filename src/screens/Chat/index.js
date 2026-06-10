@@ -1,25 +1,41 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import { View, Text, FlatList, TextInput } from 'react-native';
 
-export default function Chat() {
+const mockMensagens = [];
+
+
+const Chat = () => {
+  const [mensagens, setMensagens] = useState(mockMensagens);
+  const [novaMsg, setNovaMsg] = useState('');
+
+  const enviar = () => {
+    if (novaMsg) {
+      setMensagens([{ id: Date.now(), text: novaMsg, meu: true}]);
+      setNovaMsg('');
+    }
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Você ainda nao tem conversas</Text>
+    <View style={{ flex: 1}}>
+      <FlatList
+        data={mensagens}
+        renderItem={({item}) => (
+          <View style={{alignSelf: item.meu ? 'flex-end' : 'flex-start'}}>
+            <Text>{item.text}</Text>
+          </View>  
+        )}
+      />
+
+      <TextInput
+        value={novaMsg}
+        onChangeText={setNovaMsg}
+        placeholder="Digite uma mensagem"
+        onSubmitEditing={enviar}
+      />    
+
     </View>
   );
-}
 
-const styles = StyleSheet.create({
+};
 
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-
-  title: {
-    fontFamily: 'Poppins_600SemiBold',
-    fontSize: 20,
-    color: 'gray'
-  }
-
-});
+export default Chat;

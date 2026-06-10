@@ -1,25 +1,26 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, FlatList } from 'react-native';
+
+import estiloNotificacoes from './estiloNotificacoes';
+
+import { MOCK_NOTIFICACOES } from '../../mocks/mocknotificacoes';
+
 
 export default function Notificacoes() {
+
+  const renderNotif = ({ item: notif }) => (
+    <View style={estiloNotificacoes.caixa}>
+        <Image source={notif.imagem} resizeMode="contain" style={estiloNotificacoes.imgnotif}></Image>
+        <Text style={estiloNotificacoes.textnotif}>{notif.mensagem}</Text>
+      </View>
+  );
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Você não tem notificações</Text>
-    </View>
+    
+    <FlatList 
+      data={MOCK_NOTIFICACOES}
+      renderItem={renderNotif}
+      keyExtractor={ (item) => item.id?.toString() || Math.random().toString() }
+      style={estiloNotificacoes.tudo}
+    />
   );
 }
-
-const styles = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-
-  title: {
-    fontFamily: 'Poppins_600SemiBold',
-    fontSize: 20,
-    color: 'gray'
-  }
-
-});
